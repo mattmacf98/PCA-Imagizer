@@ -56,25 +56,25 @@ def createImage(path):
     image  = plt.imread('Img.png')
     height = len(image)
     width = len(image[0])
-    if height > 256 and width > 256:
+    if height > 128 and width > 128:
         if height > width:
-            height = int((1.0*height)/width)*256
-            width = 256
+            height = int((1.0*height)/width)*128
+            width = 128
         else:
-            width = int((1.0*width)/height)*256
-            height = 256
+            width = int((1.0*width)/height)*128
+            height = 128
 
         img = Image.open('Img.png')
         img = img.resize((height, width))
         img.save('temp.png')
-        img.save('./static/images/temp.png')
+        img.save('static/images/temp.png')
         image = plt.imread('temp.png')
 
     
     image = np.reshape(image, (len(image)*len(image[0]),3))
 
     K = 8
-    max_iters = 10
+    max_iters = 1
 
     initCentroids = kMeansInitCentroids(image,K)
     idx,centroids = np.array(runMeans(image, initCentroids, max_iters,K))
@@ -85,5 +85,6 @@ def createImage(path):
     X_recovered = np.reshape(X_recovered, (height, width, 3))
     X_recovered = (X_recovered*255).astype('uint8')
     image_r = Image.fromarray(X_recovered)
-    image_r.save("./static/images/your_file.png")
+    image_r.save("static/images/your_file.png")
+    image_r.save('your_file.png')
 
