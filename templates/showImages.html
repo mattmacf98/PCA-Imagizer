@@ -1,0 +1,13 @@
+
+<html>
+    <head>
+        <title>Images</title>
+        <meta http-equiv="cache-control" content="no-cache"/>
+        <meta http-equiv="cache-control" content="no-store"/>
+        <meta http-equiv="cache-control" content="must-revalidate"/>
+    </head>
+    <body>
+        <img id="original" src="{{url_for('static', filename='images/temp.png')}}?dummy={{key}}">
+        <img id="altered" src="{{url_for('static', filename='images/your_file.png')}}?dummy={{key}}">
+    </body>
+</html>

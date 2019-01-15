@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<head>
+    <title>Image PCA</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+    <meta http-equiv="cache-control" content="no-cache" />
+</head>
+<body>
+    <form action = '/pca_picture' method="POST">
+        <input id="image-file-url" type="url" name="picturePath" placeholder="image url">
+        <button type="submit">Preform PCA</button>
+    </form>
+<canvas id="myCanvas" width="578" height="400"></canvas>
+
+<script type=text/javascript src="{{url_for('static', filename='js/jquery.min.js') }}"></script>
+<script type=text/javascript src="{{url_for('static', filename='js/index.js') }}"></script>
+</body>
